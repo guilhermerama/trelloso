@@ -1,0 +1,14 @@
+{
+
+  "manifest_version": 2,
+  "name": "modify-trello-labels",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.trello.com/*"],
+      "js": ["label-beautifier.js"]
+    }
+  ]
+
+}
