@@ -1,3 +1,5 @@
+var badge_style = "padding: 2px 2px 0px; margin-bottom: 2px; border-radius: 3px; background-color: rgba(255, 255, 255, 0.701961);"
+
 var cards = document.getElementsByClassName("list-card");
 
 for (var i = 0; i < cards.length ; i++) {
@@ -5,19 +7,21 @@ for (var i = 0; i < cards.length ; i++) {
     var card_labels = card.getElementsByClassName("card-label");
 
     if(card_labels.length > 0){
-      var first_card_label = card_labels[0];
+        var first_card_label = card_labels[0];
       var recovered_style = window.getComputedStyle(first_card_label, null);
       var color = recovered_style.getPropertyValue("background-color");
       card.style.backgroundColor = color;
       var text_color = foregroundColorRGB(color, '#FFFFFF', '#000000');
       var card_title = card.getElementsByClassName("list-card-title")[0];
       card_title.style.color = text_color;
+      var card_badges = card.getElementsByClassName("badges")[0];
+      card_badges.style.cssText = badge_style;
     }
 
 }
 
 /**
-Deve recber cores em HexaDecial (ex: #FFFFFF)
+Deve recber cores em HexaDecimal (ex: #FFFFFF)
 */
 function foregroundColorHex(bgColor, lightColor, darkColor) {
   var color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
